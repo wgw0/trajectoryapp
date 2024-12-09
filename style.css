@@ -1,0 +1,18 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.brand-accent {
+    color: #E65A41;
+}
+
+.brand-bg {
+    background-color: #E65A41;
+}
+
+/* Navigation active link styling */
+.nav-active {
+    font-weight: bold;
+    border-bottom: 2px solid #E65A41;
+    color: #E65A41;
+}
