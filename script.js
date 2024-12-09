@@ -93,8 +93,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Function to toggle the mobile navigation menu
+// Function to toggle the sidebar menu
 function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('hidden'); // Toggle the 'hidden' class
+    const sidebar = document.getElementById('sidebarMenu');
+    const isOpen = !sidebar.classList.contains('-translate-x-full');
+    
+    if (isOpen) {
+        sidebar.classList.add('-translate-x-full');  // Slide the menu out of view
+    } else {
+        sidebar.classList.remove('-translate-x-full');  // Slide the menu into view
+    }
 }
+
+// Function to navigate to a specific page
+function navigateToPage(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('[id$="Page"]');
+    pages.forEach(page => page.classList.add('hidden'));
+
+    // Show the selected page
+    const selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.classList.remove('hidden');
+    }
+}
+
+// Add event listeners to hamburger menu links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent default link behavior
+        const pageId = this.getAttribute('href').substring(1);  // Get the pageId from href (e.g. #homePage becomes homePage)
+        navigateToPage(pageId);  // Navigate to the page
+    });
+});
+
+document.querySelectorAll('.nav-link-mobile').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent default link behavior
+        const pageId = this.getAttribute('href').substring(1);  // Get the pageId from href (e.g. #homePage becomes homePage)
+        navigateToPage(pageId);  // Navigate to the page
+        toggleMenu();  // Close the menu after selection
+    });
+});

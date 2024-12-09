@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,34 +8,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="min-h-screen flex flex-col bg-gray-50">
     <header class="sticky top-0 z-50 bg-white shadow-sm">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <h1 class="text-2xl font-bold brand-accent">Trajectory</h1>
             </div>
-            <!-- Navigation Bar -->
-            <div class="flex items-center space-x-6">
-                <nav class="hidden md:flex space-x-6">
-                    <a href="#" id="navHome" class="nav-link hover:text-[#E65A41] text-gray-700 nav-active">Home</a>
-                    <a href="#" id="navCareerAI" class="nav-link hover:text-[#E65A41] text-gray-700">Career AI</a>
-                    <a href="#" id="navCertifications" class="nav-link hover:text-[#E65A41] text-gray-700">Certifications</a>
-                    <a href="#" id="navTraining" class="nav-link hover:text-[#E65A41] text-gray-700">Training</a>
-                    <a href="#" id="navProfile" class="nav-link hover:text-[#E65A41] text-gray-700">Profile</a>
-                </nav>
-                <!-- Hamburger Icon for Mobile -->
-                <div class="md:hidden">
-                    <button id="hamburgerButton" class="text-3xl text-gray-700" onclick="toggleMenu()">☰</button>
-                </div>
+
+            <!-- Hamburger Icon for Mobile -->
+            <div class="md:hidden">
+                <button id="hamburgerButton" class="text-3xl text-gray-700" onclick="toggleMenu()">☰</button>
             </div>
-            <div>
-                <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90 transition-all">
-                    Sign In
-                </button>
-            </div>
+
+            <!-- Navigation Links (Desktop) -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" id="navHome" class="nav-link hover:text-[#E65A41] text-gray-700 nav-active" onclick="navigateToPage('homePage')">Home</a>
+                <a href="#" id="navCareerAI" class="nav-link hover:text-[#E65A41] text-gray-700" onclick="navigateToPage('careeraiPage')">Career AI</a>
+                <a href="#" id="navCertifications" class="nav-link hover:text-[#E65A41] text-gray-700" onclick="navigateToPage('certificationsPage')">Certifications</a>
+                <a href="#" id="navTraining" class="nav-link hover:text-[#E65A41] text-gray-700" onclick="navigateToPage('trainingPage')">Training</a>
+                <a href="#" id="navProfile" class="nav-link hover:text-[#E65A41] text-gray-700" onclick="navigateToPage('profilePage')">Profile</a>
+            </nav>
         </div>
     </header>
+
+    <!-- Sidebar Menu for Mobile -->
+    <div id="sidebarMenu" class="md:hidden fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300">
+        <div class="flex justify-end p-4">
+            <button class="text-3xl text-gray-700" onclick="toggleMenu()">×</button>
+        </div>
+        <nav class="flex flex-col space-y-6 px-6 py-8">
+            <a href="#homePage" id="navHomeMobile" class="nav-link-mobile hover:text-[#E65A41] text-gray-700">Home</a>
+            <a href="#careeraiPage" id="navCareerAIMobile" class="nav-link-mobile hover:text-[#E65A41] text-gray-700">Career AI</a>
+            <a href="#certificationsPage" id="navCertificationsMobile" class="nav-link-mobile hover:text-[#E65A41] text-gray-700">Certifications</a>
+            <a href="#trainingPage" id="navTrainingMobile" class="nav-link-mobile hover:text-[#E65A41] text-gray-700">Training</a>
+            <a href="#profilePage" id="navProfileMobile" class="nav-link-mobile hover:text-[#E65A41] text-gray-700">Profile</a>
+        </nav>
+    </div>
 
     <main id="mainContent" class="flex-grow container mx-auto px-4 py-8">
         <!-- Home Page -->
@@ -69,8 +76,10 @@
                 </div>
                 <div class="border-t border-gray-100 p-4 bg-gray-50">
                     <div class="flex items-center bg-white rounded-full px-4 py-2 shadow-sm">
-                        <input type="text" id="userInput" placeholder="What career guidance do you need?" class="flex-grow bg-transparent outline-none text-gray-800 placeholder-gray-500">
-                        <button id="sendButton" class="brand-bg text-white w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 transition-colors">
+                        <input type="text" id="userInput" placeholder="What career guidance do you need?"
+                            class="flex-grow bg-transparent outline-none text-gray-800 placeholder-gray-500">
+                        <button id="sendButton"
+                            class="brand-bg text-white w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                             </svg>
@@ -87,23 +96,17 @@
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold brand-accent mb-4">AWS Certified Developer</h3>
                     <p class="text-gray-600 mb-4">Validate technical skills in AWS cloud development</p>
-                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
-                        Learn More
-                    </button>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">Learn More</button>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold brand-accent mb-4">Google Project Management</h3>
                     <p class="text-gray-600 mb-4">Professional certificate in project management</p>
-                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
-                        Learn More
-                    </button>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">Learn More</button>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold brand-accent mb-4">CompTIA Security+</h3>
                     <p class="text-gray-600 mb-4">Cybersecurity certification for IT professionals</p>
-                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
-                        Learn More
-                    </button>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">Learn More</button>
                 </div>
             </div>
         </div>
@@ -113,25 +116,19 @@
             <h2 class="text-3xl brand-accent font-bold mb-6">Professional Training Courses</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold brand-accent mb-4">Web Development Bootcamp</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive full-stack development training</p>
-                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
-                        Enroll Now
-                    </button>
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Advanced JavaScript</h3>
+                    <p class="text-gray-600 mb-4">Enhance your skills with advanced JavaScript techniques</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">Start Learning</button>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold brand-accent mb-4">Data Science Masterclass</h3>
-                    <p class="text-gray-600 mb-4">Advanced data analysis and machine learning</p>
-                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
-                        Enroll Now
-                    </button>
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Data Science with Python</h3>
+                    <p class="text-gray-600 mb-4">Learn data analysis and visualization using Python</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">Start Learning</button>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold brand-accent mb-4">Digital Marketing Course</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive digital marketing strategies</p>
-                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
-                        Enroll Now
-                    </button>
+                    <h3 class="text-xl font-semibold brand-accent mb-4">UX/UI Design</h3>
+                    <p class="text-gray-600 mb-4">Master UX/UI design principles and tools</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">Start Learning</button>
                 </div>
             </div>
         </div>
@@ -139,35 +136,10 @@
         <!-- Profile Page -->
         <div id="profilePage" class="hidden">
             <h2 class="text-3xl brand-accent font-bold mb-6">Your Profile</h2>
-            <div class="bg-white p-8 rounded-lg shadow-md">
-                <div class="flex items-center mb-6">
-                    <div class="w-24 h-24 bg-gray-200 rounded-full mr-6"></div>
-                    <div>
-                        <h3 class="text-2xl font-semibold">John Doe</h3>
-                        <p class="text-gray-600">Software Engineering Student</p>
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="text-xl brand-accent mb-4">Career Goals</h4>
-                        <ul class="space-y-2">
-                            <li>Become a Full Stack Developer</li>
-                            <li>Work in a Tech Startup</li>
-                            <li>Obtain AWS Certification</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-xl brand-accent mb-4">Skills</h4>
-                        <ul class="space-y-2">
-                            <li>JavaScript</li>
-                            <li>Python</li>
-                            <li>Project Management</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <p class="text-lg text-gray-600">Manage and update your career details</p>
+            <!-- Profile content goes here -->
         </div>
-        </main>
+    </main>
 
     <footer class="bg-gray-100 py-6">
         <div class="container mx-auto px-4 text-center text-gray-600">
@@ -177,5 +149,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
