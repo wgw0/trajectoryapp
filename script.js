@@ -12,21 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
             e.target.classList.add("nav-active");
 
             // Hide all pages
-            const pages = ["homePage", "careeraiPage", "certificationsPage", "trainingPage", "profilePage"];
+            const pages = ["homePage", "careeraiPage", "certificationsPage", "trainingPage", "profilePage", "signupPage"];
             pages.forEach((pageId) => {
                 const page = document.getElementById(pageId);
-                if (page) page.classList.add("hidden");
+                if (page) page.classList.add("hidden");  // Hide page
             });
 
             // Show selected page
-            const pageId = e.target.id.replace("nav", "").toLowerCase() + "Page";
+            const pageId = e.target.id.replace("nav", "").toLowerCase() + "Page";  // Construct the pageId
             const selectedPage = document.getElementById(pageId);
-            if (selectedPage) selectedPage.classList.remove("hidden");
-
-            // Initialize Career AI chatbot on Career AI Page
-            if (pageId === "careeraiPage") {
-                initializeCareerAI();
-            }
+            if (selectedPage) selectedPage.classList.remove("hidden");  // Show the selected page
         });
     });
 
@@ -127,6 +122,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// Add event listeners to hamburger menu links for mobile version
 document.querySelectorAll('.nav-link-mobile').forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();  // Prevent default link behavior
@@ -134,4 +130,10 @@ document.querySelectorAll('.nav-link-mobile').forEach(link => {
         navigateToPage(pageId);  // Navigate to the page
         toggleMenu();  // Close the menu after selection
     });
+});
+
+// Add specific event listener for the Sign-Up link
+document.querySelector("#navSignup").addEventListener("click", function (e) {
+    e.preventDefault();
+    navigateToPage("signupPage");  // Show the Sign-Up page when the button is clicked
 });
