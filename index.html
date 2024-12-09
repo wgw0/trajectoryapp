@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trajectory - Career Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .brand-accent {
+            color: #E65A41;
+        }
+        .brand-bg {
+            background-color: #E65A41;
+        }
+        .nav-active {
+            border-bottom: 2px solid #E65A41;
+            color: #E65A41;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50">
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold brand-accent">Trajectory</h1>
+            </div>
+            <nav class="flex space-x-6">
+                <a href="#" id="navHome" class="nav-link hover:text-[#E65A41] text-gray-700 nav-active">Home</a>
+                <a href="#" id="navCareerAI" class="nav-link hover:text-[#E65A41] text-gray-700">Career AI</a>
+                <a href="#" id="navCertifications" class="nav-link hover:text-[#E65A41] text-gray-700">Certifications</a>
+                <a href="#" id="navTraining" class="nav-link hover:text-[#E65A41] text-gray-700">Training</a>
+                <a href="#" id="navProfile" class="nav-link hover:text-[#E65A41] text-gray-700">Profile</a>
+            </nav>
+            <div>
+                <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90 transition-all">
+                    Sign In
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent" class="flex-grow container mx-auto px-4 py-8">
+        <!-- Home Page -->
+        <div id="homePage" class="text-center">
+            <h2 class="text-4xl font-bold brand-accent mb-4">Welcome to Trajectory</h2>
+            <p class="text-xl text-gray-600 mb-8">Launching your career trajectory.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Career AI</h3>
+                    <p>Get personalised career guidance and advice</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Certifications</h3>
+                    <p>Discover and track professional certifications</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Training</h3>
+                    <p>Find courses to enhance your skills</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career AI Page -->
+        <div id="careerAIPage" class="hidden">
+            <div id="chatContainer" class="w-full max-w-xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div id="chatMessages" class="p-6 h-[500px] overflow-y-auto space-y-4">
+                    <div class="text-center text-gray-500 py-4">
+                        Welcome to Trajectory AI. Ask anything about your career journey.
+                    </div>
+                </div>
+                <div class="border-t border-gray-100 p-4 bg-gray-50">
+                    <div class="flex items-center bg-white rounded-full px-4 py-2 shadow-sm">
+                        <input 
+                            type="text" 
+                            id="userInput" 
+                            placeholder="What career guidance do you need?" 
+                            class="flex-grow bg-transparent outline-none text-gray-800 placeholder-gray-500"
+                        >
+                        <button 
+                            id="sendButton" 
+                            class="brand-bg text-white w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 transition-colors"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications Page -->
+        <div id="certificationsPage" class="hidden">
+            <h2 class="text-3xl brand-accent font-bold mb-6">Professional Certifications</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">AWS Certified Developer</h3>
+                    <p class="text-gray-600 mb-4">Validate technical skills in AWS cloud development</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
+                        Learn More
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Google Project Management</h3>
+                    <p class="text-gray-600 mb-4">Professional certificate in project management</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
+                        Learn More
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">CompTIA Security+</h3>
+                    <p class="text-gray-600 mb-4">Cybersecurity certification for IT professionals</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Training Page -->
+        <div id="trainingPage" class="hidden">
+            <h2 class="text-3xl brand-accent font-bold mb-6">Professional Training Courses</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Web Development Bootcamp</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive full-stack development training</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Data Science Masterclass</h3>
+                    <p class="text-gray-600 mb-4">Advanced data analysis and machine learning</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
+                        Enroll Now
+                    </button>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold brand-accent mb-4">Digital Marketing Course</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive digital marketing strategies</p>
+                    <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90">
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" class="hidden">
+            <h2 class="text-3xl brand-accent font-bold mb-6">Your Profile</h2>
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <div class="flex items-center mb-6">
+                    <div class="w-24 h-24 bg-gray-200 rounded-full mr-6"></div>
+                    <div>
+                        <h3 class="text-2xl font-semibold">John Doe</h3>
+                        <p class="text-gray-600">Software Engineering Student</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-xl brand-accent mb-4">Career Goals</h4>
+                        <ul class="space-y-2">
+                            <li>Become a Full Stack Developer</li>
+                            <li>Work in a Tech Startup</li>
+                            <li>Obtain AWS Certification</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl brand-accent mb-4">Skills</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 py-6">
+        <div class="container mx-auto px-4 text-center text-gray-600">
+            © 2024 Trajectory • Your Career Development Partner
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Handler
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active state from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
+                
+                // Add active state to clicked link
+                e.target.classList.add('nav-active');
+                
+                // Hide all pages
+                ['Home', 'CareerAI', 'Certifications', 'Training', 'Profile'].forEach(page => {
+                    document.getElementById(`${page.toLowerCase()}Page`).classList.add('hidden');
+                });
+                
+                // Show selected page
+                const pageId = e.target.id.replace('nav', '').toLowerCase() + 'Page';
+                document.getElementById(pageId).classList.remove('hidden');
+            });
+        });
+
+        // Career AI Functionality (Similar to previous implementation)
+        class CareerAdvisorAI {
+            constructor() {
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                const sendButton = document.getElementById('sendButton');
+                const userInput = document.getElementById('userInput');
+                
+                sendButton.addEventListener('click', () => this.handleUserMessage());
+                userInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.handleUserMessage();
+                });
+            }
+
+            handleUserMessage() {
+                const userInput = document.getElementById('userInput');
+                const message = userInput.value.trim();
+                
+                if (message) {
+                    this.displayMessage('user', message);
+                    this.generateAIResponse(message);
+                    userInput.value = '';
+                }
+            }
+
+            displayMessage(sender, message) {
+                const chatMessages = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add(
+                    'p-4', 'rounded-xl', 'max-w-[80%]', 'clear-both',
+                    sender === 'user' 
+                        ? 'bg-blue-100 text-right ml-auto' 
+                        : 'bg-gray-100 text-left mr-auto'
+                );
+                messageDiv.innerHTML = `
+                    <div class="text-sm font-medium text-gray-600 mb-1">
+                        ${sender === 'user' ? 'You' : 'Trajectory AI'}
+                    </div>
+                    ${message}
+                `;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            generateAIResponse(userMessage) {
+                // Previous AI response logic remains the same
+                const responses = {
+                    'career': [
+                        "Based on your interest, I recommend exploring roles in technology and digital marketing.",
+                        "Have you considered internships in startup environments to gain diverse experience?",
+                        "Your skills seem well-suited for project management or data analysis roles."
+                    ],
+                    // ... (rest of the previous implementation)
+                };
+
+                const keywords = {
+                    'career': ['career', 'job', 'profession', 'work'],
+                    'skills': ['skills', 'learn', 'develop', 'improve'],
+                    'interview': ['interview', 'prepare', 'tips', 'hiring']
+                };
+
+                const matchCategory = Object.keys(keywords).find(category => 
+                    keywords[category].some(keyword => 
+                        userMessage.toLowerCase().includes(keyword)
+                    )
+                ) || 'default';
+
+                const response = matchCategory !== 'default'
+                    ? responses[matchCategory][Math.floor(Math.random() * responses[matchCategory].length)]
+                    : "I'm here to help you navigate your career path. What specific questions do you have?";
+
+                setTimeout(() => {
+                    this.displayMessage('ai', response);
+                }, 500);
+            }
+        }
+
+        new CareerAdvisorAI();
+    </script>
+</body>
+</html>
