@@ -137,3 +137,49 @@ document.querySelector("#navSignup").addEventListener("click", function (e) {
     e.preventDefault();
     navigateToPage("signupPage");  // Show the Sign-Up page when the button is clicked
 });
+
+// Function to display the error modal
+function showErrorModal() {
+    const modal = document.getElementById("errorModal");
+    modal.classList.remove("hidden"); // Show the modal
+}
+
+// Function to close the error modal
+document.getElementById("closeErrorModal").addEventListener("click", () => {
+    const modal = document.getElementById("errorModal");
+    modal.classList.add("hidden"); // Hide the modal
+});
+
+// Function to handle sign-up (this is where you'd normally send the data to your backend)
+function handleSignUp(event) {
+    event.preventDefault();
+
+    // Example: This is where you'd make an API call to sign up (for now, we simulate an error)
+    fetch('your-signup-api-endpoint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            // Collect form data here
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+        }),
+    })
+    .then(response => {
+        if (response.ok) {
+            // Proceed with sign-up success (this won't run because we're simulating an error)
+            console.log("Sign-up successful!");
+        } else {
+            // If the response is not ok, show the error modal
+            showErrorModal();
+        }
+    })
+    .catch(error => {
+        // If there's an error (network issues, etc.), show the error modal
+        showErrorModal();
+    });
+}
+
+// Attach the sign-up handler to the form submit event
+document.getElementById("signUpForm").addEventListener("submit", handleSignUp);

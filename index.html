@@ -144,7 +144,7 @@
         <!-- Sign Up Page -->
         <div id="signupPage" class="hidden">
             <h2 class="text-3xl brand-accent font-bold mb-6">Sign Up</h2>
-            <form action="#" method="POST" class="space-y-6">
+            <form id="signUpForm" action="#" method="POST" class="space-y-6">
                 <div>
                     <label for="username" class="block text-lg font-semibold">Username</label>
                     <input type="text" id="username" name="username" class="w-full p-3 border border-gray-300 rounded-lg" required>
@@ -161,6 +161,15 @@
                     <button type="submit" class="brand-bg text-white px-6 py-3 rounded-full">Sign Up</button>
                 </div>
             </form>
+        </div>
+
+        <!-- Error Modal -->
+        <div id="errorModal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
+                <h3 class="text-xl font-semibold text-red-500">Error</h3>
+                <p class="text-gray-700 mt-2">Sorry, the sign-up process is currently not working. Please try again later.</p>
+                <button id="closeErrorModal" class="mt-4 px-6 py-2 bg-red-500 text-white rounded-full hover:bg-red-400">Close</button>
+            </div>
         </div>
     </main>
 
