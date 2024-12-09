@@ -92,3 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Function to toggle the mobile navigation menu
+function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('hidden'); // Toggle the 'hidden' class
+}

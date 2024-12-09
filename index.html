@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="min-h-screen flex flex-col bg-gray-50">
     <header class="sticky top-0 z-50 bg-white shadow-sm">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <h1 class="text-2xl font-bold brand-accent">Trajectory</h1>
             </div>
-            <nav class="flex space-x-6">
-                <a href="#" id="navHome" class="nav-link hover:text-[#E65A41] text-gray-700 nav-active">Home</a>
-                <a href="#" id="navCareerAI" class="nav-link hover:text-[#E65A41] text-gray-700">Career AI</a>
-                <a href="#" id="navCertifications" class="nav-link hover:text-[#E65A41] text-gray-700">Certifications</a>
-                <a href="#" id="navTraining" class="nav-link hover:text-[#E65A41] text-gray-700">Training</a>
-                <a href="#" id="navProfile" class="nav-link hover:text-[#E65A41] text-gray-700">Profile</a>
-            </nav>
+            <!-- Navigation Bar -->
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" id="navHome" class="nav-link hover:text-[#E65A41] text-gray-700 nav-active">Home</a>
+                    <a href="#" id="navCareerAI" class="nav-link hover:text-[#E65A41] text-gray-700">Career AI</a>
+                    <a href="#" id="navCertifications" class="nav-link hover:text-[#E65A41] text-gray-700">Certifications</a>
+                    <a href="#" id="navTraining" class="nav-link hover:text-[#E65A41] text-gray-700">Training</a>
+                    <a href="#" id="navProfile" class="nav-link hover:text-[#E65A41] text-gray-700">Profile</a>
+                </nav>
+                <!-- Hamburger Icon for Mobile -->
+                <div class="md:hidden">
+                    <button id="hamburgerButton" class="text-3xl text-gray-700" onclick="toggleMenu()">☰</button>
+                </div>
+            </div>
             <div>
                 <button class="brand-bg text-white px-4 py-2 rounded-full hover:opacity-90 transition-all">
                     Sign In
@@ -50,7 +59,6 @@
             </div>
         </div>
 
-
         <!-- Career AI Page -->
         <div id="careeraiPage" class="hidden">
             <div id="chatContainer" class="w-full max-w-xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -61,25 +69,16 @@
                 </div>
                 <div class="border-t border-gray-100 p-4 bg-gray-50">
                     <div class="flex items-center bg-white rounded-full px-4 py-2 shadow-sm">
-                        <input 
-                            type="text" 
-                            id="userInput" 
-                            placeholder="What career guidance do you need?" 
-                            class="flex-grow bg-transparent outline-none text-gray-800 placeholder-gray-500"
-                        >
-                        <button 
-                            id="sendButton" 
-                            class="brand-bg text-white w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 transition-colors"
-                        >
+                        <input type="text" id="userInput" placeholder="What career guidance do you need?" class="flex-grow bg-transparent outline-none text-gray-800 placeholder-gray-500">
+                        <button id="sendButton" class="brand-bg text-white w-10 h-10 rounded-full flex items-center justify-center hover:opacity-90 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                             </svg>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- Certifications Page -->
         <div id="certificationsPage" class="hidden">
@@ -168,7 +167,7 @@
                 </div>
             </div>
         </div>
-    </main>
+        </main>
 
     <footer class="bg-gray-100 py-6">
         <div class="container mx-auto px-4 text-center text-gray-600">
@@ -178,4 +177,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
